@@ -129,9 +129,13 @@
     <None Include="TouristRybinsk_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\birzharyb.jpg" />
+    <Content Include="Assets\birzhastar.jpg" />
+    <Content Include="Assets\byrlakryb_thumb.jpg" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\rybinsk-sobor.jpg" />
     <Content Include="Assets\rybinsk-teplohod.jpg" />
+    <Content Include="Assets\rybinskoe-reservior.jpg" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\sobor-kalancha.jpg" />
     <Content Include="Assets\sobor-ryb.jpg" />
@@ -143,6 +147,7 @@
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
+    <Content Include="Assets\vidvolga.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
