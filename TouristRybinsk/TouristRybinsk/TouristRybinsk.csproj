@@ -12,7 +12,8 @@
     <DefaultLanguage>ru-RU</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>TouristRybinsk_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>TouristRybinsk_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>075BC25B9FFA1904D38483E2B30E64077722CCF1</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -100,9 +101,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="AboutProgram.xaml.cs">
+      <DependentUpon>AboutProgram.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -126,13 +127,27 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
+    <None Include="packages.config" />
+    <None Include="TouristRybinsk_StoreKey.pfx" />
     <None Include="TouristRybinsk_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AboutProgram.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Content Include="Assets\birzharyb.jpg" />
     <Content Include="Assets\birzhastar.jpg" />
     <Content Include="Assets\byrlakryb_thumb.jpg" />
+    <Content Include="Assets\dom-hydoznikov.jpg" />
+    <Content Include="Assets\IMG_0097.jpg" />
+    <Content Include="Assets\IMG_01361.jpg" />
+    <Content Include="Assets\IMG_0257.jpg" />
+    <Content Include="Assets\IMG_0262.jpg" />
+    <Content Include="Assets\IMG_4920.jpg" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\Nicchas.jpg" />
+    <Content Include="Assets\nicolsk.jpg" />
     <Content Include="Assets\rybinsk-sobor.jpg" />
     <Content Include="Assets\rybinsk-teplohod.jpg" />
     <Content Include="Assets\rybinskoe-reservior.jpg" />
@@ -148,6 +163,7 @@
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
     <Content Include="Assets\vidvolga.jpg" />
+    <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -166,6 +182,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Callisto">
+      <HintPath>..\packages\Callisto.1.2.6\lib\winrt45\Callisto.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

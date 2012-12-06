@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ApplicationSettings;
+using Callisto.Controls;
 
 // Шаблон элемента страницы с разделением задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234234
 
@@ -29,6 +31,31 @@ namespace TouristRybinsk
         public SplitPage()
         {
             this.InitializeComponent();
+            //SettingsPane.GetForCurrentView().CommandsRequested += Settings_CommandsRequested;
+        }
+        /*protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //SettingsPane.GetForCurrentView().CommandsRequested += Settings_CommandsRequested;
+        }
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            //SettingsPane.GetForCurrentView().CommandsRequested -= Settings_CommandsRequested;
+        }*/
+        void Settings_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            var viewAboutPage = new SettingsCommand("", "О приложении", cmd =>
+            {
+                //(Window.Current.Content as Frame).Navigate(typeof(AboutPage));
+                var settingsFlyout = new SettingsFlyout();
+                settingsFlyout.Content = new AboutProgram(); //this is just a regular XAML UserControl
+
+
+                settingsFlyout.HeaderText = "О приложении";
+
+
+                settingsFlyout.IsOpen = true;
+            });
+            args.Request.ApplicationCommands.Add(viewAboutPage);
         }
 
         #region Управление состоянием страницы

@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ApplicationSettings;
+using Callisto.Controls;
 
 // Шаблон элемента страницы элементов задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -29,6 +31,28 @@ namespace TouristRybinsk
         public ItemsPage()
         {
             this.InitializeComponent();
+            
+        }
+
+        /*protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            SettingsPane.GetForCurrentView().CommandsRequested -= Settings_CommandsRequested;
+        }*/
+        void Settings_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            var viewAboutPage = new SettingsCommand("", "О приложении", cmd =>
+            {
+                //(Window.Current.Content as Frame).Navigate(typeof(AboutPage));
+                var settingsFlyout = new SettingsFlyout();
+                settingsFlyout.Content = new AboutProgram(); //this is just a regular XAML UserControl
+
+
+                settingsFlyout.HeaderText = "О приложении";
+
+
+                settingsFlyout.IsOpen = true;
+            });
+            args.Request.ApplicationCommands.Add(viewAboutPage);
         }
 
         /// <summary>
@@ -45,6 +69,8 @@ namespace TouristRybinsk
             // TODO: Создание соответствующей модели данных для области проблемы, чтобы заменить пример данных
             var sampleDataGroups = SampleDataSource.GetGroups((String)navigationParameter);
             this.DefaultViewModel["Items"] = sampleDataGroups;
+
+            //SettingsPane.GetForCurrentView().CommandsRequested += Settings_CommandsRequested;
         }
 
         /// <summary>
